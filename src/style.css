@@ -1,0 +1,60 @@
+@import 'tailwindcss';
+
+/* -----------------------------------------------------------------------------
+   Local fonts: place files in public/fonts/
+   - MD Nichrome Test: e.g. MDNichromeTest.woff2, MDNichromeTest.woff
+   - Urbanist: loaded from Google Fonts by default; see index.html
+   To use local Urbanist, add @font-face here and remove the Google Fonts link.
+   ----------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'MD Nichrome Test';
+  src:
+    url('/fonts/MDNichromeTest.woff2') format('woff2'),
+    url('/fonts/MDNichromeTest.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Optional: use local Urbanist instead of Google Fonts (uncomment and add files to public/fonts/)
+@font-face {
+  font-family: 'Urbanist';
+  src:
+    url('/fonts/Urbanist.woff2') format('woff2'),
+    url('/fonts/Urbanist.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
+@theme {
+  --font-nichrome: 'MD Nichrome Test', sans-serif;
+  --font-urbanist: 'Urbanist', sans-serif;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-950 text-slate-100 antialiased font-urbanist;
+}
+
+@keyframes premiumBrandsMarquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.premium-brands-marquee-track {
+  animation: premiumBrandsMarquee var(--premium-marquee-duration, 30s) linear infinite;
+  will-change: transform;
+  width: max-content;
+}
